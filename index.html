@@ -1,23 +1,80 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>My App</title>
-    <meta name="viewport" content="width=device-width,
-                                   initial-scale=1.0,
-                                   maximum-scale=1.0,
-                                   user-scalable=no,
-                                   minimal-ui">
-    <link rel="stylesheet" href="//cdn.kik.com/app/3.0.0/app.min.css">
-    <style>
-      /* put your styles here */
-    </style>
-  </head>
-  <body>
-    <!-- put your pages here -->
-    <script src="//zeptojs.com/zepto.min.js"></script>
-    <script src="//cdn.kik.com/app/3.0.0/app.min.js"></script>
-    <script>
-      /* put your javascript here */
-    </script>
-  </body>
-</html>
+   <head>
+      <title>PhotoGo</title>
+      
+      <meta name="viewport" content="width=device-width,
+                                    initial-scale=1.0,
+                                    maximum-scale=1.0,
+                                    user-scalable=no,
+                                    minimal-ui">
+      <meta charset="UTF-8">
+
+      <link rel="stylesheet" href="https://cdn.kik.com/app/3.0.0/app.min.css">
+      <link rel="stylesheet" href="css/loaders.min.css">
+      <link rel="stylesheet" href="css/photogo.css">
+   </head>
+   <body>
+      <!-- HOME -->
+      <div class="app-page home" data-page="home">
+         <div class="app-topbar">
+            <div class="app-title">PhotoGo</div>
+         </div>
+         <div class="app-content">
+            <input class="app-input input-nickname" value="def" placeholder="Enter your nickname here…">
+            <div class="app-button start-new-lobby">Start new lobby</div>
+            <div class="app-button join-existing-lobby">Join existing lobby</div>
+         </div>
+         <input type="file" accept="image/*" capture="camera" />
+      </div>
+
+      <!-- LOADING LOBBY -->
+      <div class="app-page loading-lobby" data-page="loading-lobby">
+         <div class="app-content">
+            <div class="line-spin-fade-loader">
+               <div></div><div></div><div></div><div></div>
+               <div></div><div></div><div></div><div></div>
+            </div>
+         </div>
+      </div>
+
+      <!-- JOIN LOBBY (QR SCAN) -->
+      <div class="app-page join-lobby" data-page="join-lobby">
+         <div class="app-topbar">
+            <div class="app-button left" data-back>BACK</div>
+            <div class="app-title">PhotoGo</div>
+            <div class="app-button right camera-switch">SWITCH CAMERA</div>
+         </div>
+         <div class="app-content">
+            <video id="preview"></video>
+         </div>
+      </div>
+
+      <!-- LOBBY VIEW -->
+      <div class="app-page lobby-view" data-page="lobby-view">
+         <div class="app-topbar">
+            <div class="left app-button" data-back data-autotitle></div>
+            <div class="app-title">PhotoGo</div>
+            <div class="right app-button" data-autotitle>Start game</div>
+         </div>
+         <div class="app-content">
+            <div class="app-section">
+               <p>Scan code below on other devices to join!</p>
+               <p>When everyone picked their teams, press "Start Game" button.</p>
+            </div>
+            <div class="app-section">
+               <div class="qr-code"></div>
+            </div>
+            <ul class="app-list app-section player-list">
+
+            </ul>
+         </div>
+      </div>
+
+      <script src="https://zeptojs.com/zepto.min.js"></script>
+      <script src="https://cdn.kik.com/app/3.0.0/app.min.js"></script>
+      <script src="js/instascan.min.js"></script>
+      <script src="js/qrcode.min.js"></script>
+      <script src="js/photogo.js"></script>
+   </body>
+   </html>

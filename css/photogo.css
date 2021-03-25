@@ -1,0 +1,12 @@
+.loading-lobby > .app-content > .line-spin-fade-loader > div{
+    background-color: #eb344c;
+}
+
+.loading-lobby > .app-content > .line-spin-fade-loader {
+    left: 50%;
+    top: 50%;
+}
+
+.qr-code img {
+    margin: 0 auto
+}
